@@ -70,6 +70,50 @@ main {
 }
 
 /* ======================================= */
+/* ESTILOS DE FOOTER Y REDES SOCIALES */
+/* ======================================= */
+
+/* Estilo general de los enlaces de red social */
+.social-links a {
+    /* Define el área del clic para íconos y padding */
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;  /* Ancho del contenedor */
+    height: 50px; /* Alto del contenedor */
+    border-radius: 50%;
+    color: var(--blanco);
+    background-color: transparent;
+    transition: background-color 0.3s, transform 0.3s;
+    font-size: 1.2rem; /* Tamaño para los íconos (<i>) que quedan */
+}
+
+/* Efecto Hover para todos los enlaces (íconos o imágenes) */
+.social-links a:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Fondo semi-transparente al pasar el mouse */
+    transform: scale(1.1); /* Ligeramente más grande al pasar el mouse */
+}
+
+/* ------------------------------------------- */
+/* NUEVOS ESTILOS PARA LAS IMÁGENES PERSONALIZADAS */
+/* ------------------------------------------- */
+
+.social-links a .social-icon-img {
+    /* Asegura que la imagen quepa dentro del área de 40x40px definida arriba */
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Asegura que la imagen se vea completa y mantenga sus proporciones */
+    border-radius: 50%; /* Opcional: para que las imágenes personalizadas también sean redondas */
+    display: block; /* Elimina posibles espacios extra debajo de la imagen */
+}
+
+/* Si quieres que las imágenes tengan un color de fondo fijo (y no solo en hover): */
+.social-links a:has(.social-icon-img) {
+    /* Puedes definir un color de fondo si lo deseas, o dejarlo transparente */
+    background-color: transparent; 
+}
+
+/* ======================================= */
 /* ESTILOS DE MENÚ DESPLEGABLE (SUBMENÚ) */
 /* ======================================= */
 

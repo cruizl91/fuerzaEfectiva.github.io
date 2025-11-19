@@ -1,0 +1,100 @@
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="estilo.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+<script src="include.js"></script>
+<script src="menu-toggle.js"></script>
+<div id="header-placeholder"></div>
+
+<div class="container form-container">
+    <h2>Registro de Servicios Intracuartel</h2>
+    
+    <form id="dotacionForm">
+        
+        <div class="form-selects-grid">
+            
+            <div class="form-group">
+                <label for="prefectura">Prefectura:</label>
+                <select id="prefectura" name="prefectura" required>
+                    <option value="" disabled selected>-- Cargando Prefecturas --</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="unidad">Unidad:</label>
+                <select id="unidad" name="unidad" required disabled>
+                    <option value="" disabled selected>-- Seleccione Unidad --</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="destacamento">Destacamento:</label>
+                <select id="destacamento" name="destacamento" required disabled>
+                    <option value="" disabled selected>-- Seleccione Destacamento --</option>
+                </select>
+            </div>
+        </div>
+        
+        <hr>
+        
+        <h3 class="input-section-title group-1-title">TURNOS POBLACION</h3>
+        <div class="table-responsive-input">
+            <table class="input-group-table group-1-table">
+                <tr>
+                    <th colspan="2">1° TURNO</th><th colspan="2">2° TURNO</th><th colspan="2">3° TURNO</th><th colspan="2">FRANCO</th>
+                </tr>
+                <tr>
+                    <th>PNS</th><th>PNI</th><th>PNS</th><th>PNI</th><th>PNS</th><th>PNI</th><th>PNS</th><th>PNI</th>
+                </tr>
+                <tr class="data-input-row">
+                    <td><input type="number" name="pns_tpo_t1" min="0" value="0"></td><td><input type="number" name="pni_tpo_t1" min="0" value="0"></td>
+                    <td><input type="number" name="pns_tpo_t2" min="0" value="0"></td><td><input type="number" name="pni_tpo_t2" min="0" value="0"></td>
+                    <td><input type="number" name="pns_tpo_t3" min="0" value="0"></td><td><input type="number" name="pni_tpo_t3" min="0" value="0"></td>
+                    <td><input type="number" name="pns_tpo_franco" min="0" value="0"></td><td><input type="number" name="pni_tpo_franco" min="0" value="0"></td>
+                </tr>
+            </table>
+        </div>
+        
+        <h3 class="input-section-title group-2-title">PATRULLAJE POBLACION</h3>
+        <div class="table-responsive-input">
+            <table class="input-group-table group-2-table">
+                <tr>
+                    <th colspan="2">1° PATRULLAJE</th><th colspan="2">2° PATRULLAJE</th><th colspan="2">FRANCO</th>
+                </tr>
+                <tr>
+                    <th>PNS</th><th>PNI</th><th>PNS</th><th>PNI</th><th>PNS</th><th>PNI</th>
+                </tr>
+                <tr class="data-input-row">
+                    <td><input type="number" name="pns_ppa_p1" min="0" value="0"></td><td><input type="number" name="pni_ppa_p1" min="0" value="0"></td>
+                    <td><input type="number" name="pns_ppa_p2" min="0" value="0"></td><td><input type="number" name="pni_ppa_p2" min="0" value="0"></td>
+                    <td><input type="number" name="pns_ppa_franco" min="0" value="0"></td><td><input type="number" name="pni_ppa_franco" min="0" value="0"></td>
+                </tr>
+            </table>
+        </div>
+
+        <h3 class="input-section-title group-3-title">SERVICIOS EXTRAORDINARIOS</h3>
+        <div class="table-responsive-input">
+            <table class="input-group-table group-3-table">
+                <tr>
+                    <th colspan="2">ECO</th><th colspan="2">PAR</th><th colspan="2">OTROS EXTRAORDINARIOS</th><th colspan="2">FRANCO</th>
+                </tr>
+                <tr>
+                    <th>PNS</th><th>PNI</th><th>PNS</th><th>PNI</th><th>PNS</th><th>PNI</th><th>PNS</th><th>PNI</th>
+                </tr>
+                <tr class="data-input-row">
+                    <td><input type="number" name="pns_ext_eco" min="0" value="0"></td><td><input type="number" name="pni_ext_eco" min="0" value="0"></td>
+                    <td><input type="number" name="pns_ext_par" min="0" value="0"></td><td><input type="number" name="pni_ext_par" min="0" value="0"></td>
+                    <td><input type="number" name="pns_ext_otros" min="0" value="0"></td><td><input type="number" name="pni_ext_otros" min="0" value="0"></td>
+                    <td><input type="number" name="pns_ext_franco" min="0" value="0"></td><td><input type="number" name="pni_ext_franco" min="0" value="0"></td>
+                </tr>
+            </table>
+        </div>
+        
+        <button type="submit" class="btn-submit">Guardar Registro en Base de Datos</button>
+        <div id="mensaje-respuesta"></div>
+    </form>
+</div>
+
+<div id="footer-placeholder"></div>

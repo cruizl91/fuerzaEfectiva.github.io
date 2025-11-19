@@ -1,0 +1,387 @@
+:root {
+  --verde: #088024;
+  --blanco: #ffffff;
+  --gris: #f4f6f8;
+  --texto: #222;
+}
+
+
+/* Estilo para que la tabla sea desplazable horizontalmente en móviles */
+/* Esta regla va al final de tu archivo estilo.css */
+@media (max-width: 700px) {
+  /* Envuelve la tabla en su propio contenedor desplazable */
+  .container {
+    padding: 10px; /* Reducir padding del contenedor principal */
+  }
+
+  /* Aplica desplazamiento horizontal al contenedor de la tabla */
+  .container {
+    overflow-x: auto; /* Permite desplazamiento horizontal */
+  }
+  
+  /* Asegura que la tabla tenga suficiente ancho para desplazarse */
+  table {
+    min-width: 850px; /* Un ancho mínimo para asegurar que todos los encabezados se vean */
+    font-size: 0.8rem;
+  }
+  
+  th, td {
+    padding: 5px; /* Reducir padding de celdas para ahorrar espacio */
+  }
+    }
+  
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--gris);
+  color: var(--texto);
+}
+
+/* HEADER & FOOTER */
+/* NOTA: El header principal tiene sus propias reglas más abajo (.main-header) */
+header,
+footer {
+  /* Estas reglas son para el caso de que no se usen los includes */
+  background: var(--verde);
+  color: var(--blanco);
+  padding: 1rem;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+/* FLEX para centrar el cuerpo entre header y footer */
+main {
+  flex: 1; /* ocupa todo el espacio disponible */
+  display: block;
+  justify-content: center; /* centrado horizontal */
+  align-items: baseline;     /* centrado vertical */
+  padding: 10px 0;         /* <-- Margen superior e inferior para separar de Header/Footer */
+  width: 100%;             /* Asegura que ocupe todo el ancho */
+}
+
+/* CONTENEDOR PRINCIPAL */
+.container {
+  /* Reglas consolidadas para el centrado de la tabla/contenido */
+  width: 95%;
+  max-width: 7000px; /* Ancho máximo para el contenido (tu tabla) */
+  margin: 0 auto;    /* Centrado horizontal dentro de MAIN */
+  background: var(--blanco);
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+}
+
+/* TABLA PRINCIPAL */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+th,
+td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  font-size: 0.9rem;
+}
+
+th {
+  background: var(--verde);
+  color: var(--blanco);
+  font-weight: bold;
+}
+
+.subheader td {
+  background: #d8f3dc;
+  font-weight: bold;
+}
+
+input[type="number"] {
+  width: 70px;
+  padding: 4px;
+  text-align: center;
+  border: 1px solid #aaa;
+  border-radius: 4px;
+}
+
+input[type="number"]:focus {
+  outline: none;
+  border-color: var(--verde);
+  box-shadow: 0 0 3px var(--verde);
+}
+
+/* CABECERA DE TABLA (Repetido, manteniendo por si acaso) */
+th {
+  background: var(--verde);
+  color: var(--blanco);
+  font-weight: bold;
+}
+
+.subheader td {
+  background: #d8f3dc;
+  font-weight: bold;
+}
+
+/* CAMPOS NUMÉRICOS (Repetido, manteniendo por si acaso) */
+input[type="number"] {
+  width: 70px;
+  padding: 4px;
+  text-align: center;
+  border: 1px solid #aaa;
+  border-radius: 4px;
+}
+
+input[type="number"]:focus {
+  outline: none;
+  border-color: var(--verde);
+  box-shadow: 0 0 3px var(--verde);
+}
+
+/* RESPONSIVE */
+@media (max-width: 1000px) {
+  table {
+    font-size: 0.8rem;
+  }
+  input[type="number"] {
+    width: 55px;
+  }
+}
+
+@media (max-width: 700px) {
+  .container {
+    padding: 10px;
+  }
+  th, td {
+    padding: 5px;
+  }
+}
+
+/* --- SECCIÓN DE HEADER PRINCIPAL (Mantenida) --- */
+.main-header {
+    width: 100%;
+    background: var(--verde);
+    color: var(--blanco);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+/* CONTENEDOR DEL LOGO + TEXTO */
+.brand-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* IMAGEN DEL LOGO */
+.brand-logo {
+    width: 50px;     /* cuadrado: puedes cambiar el tamaño */
+    height: 50px;    /* cuadrado */
+    object-fit: cover;
+    border-radius: 6px;
+    background: #fff; /* por si la imagen no carga */
+}
+
+/* TEXTO FUERZA EFECTIVA */
+.brand {
+    font-size: 1.6rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+/* NAV */
+.nav-links {
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--blanco);
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 8px 14px;
+    border-radius: 6px;
+    transition: background 0.25s, transform 0.25s;
+}
+
+/* HOVER */
+.nav-links a:hover {
+    background: rgba(255,255,255,0.25);
+    transform: translateY(-2px);
+}
+
+/* RESPONSIVE */
+@media (max-width: 700px) {
+    .main-header {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .nav-links {
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
+/* --- FOOTER (Mantenido) --- */
+footer {
+    background: var(--verde);
+    color: var(--blanco);
+    padding: 20px 0;
+    text-align: center;
+    font-size: 1rem;
+}
+
+/* Contenedor de iconos */
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 10px;
+}
+
+/* Estilo general de los íconos */
+.social-links a {
+    color: var(--blanco);
+    font-size: 1.4rem;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.15);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.25s ease-in-out;
+    text-decoration: none;
+}
+
+/* Efecto hover */
+.social-links a:hover {
+    background: var(--blanco);
+    color: var(--verde);
+    transform: scale(1.15);
+}
+
+/* Texto del footer */
+footer p {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+/* ======================================= */
+/* ESTILOS ESPECÍFICOS DEL MENÚ SANDWICH */
+/* ======================================= */
+
+/* Ocultar el botón por defecto en escritorio */
+.menu-toggle {
+    display: none; 
+    background: none;
+    border: none;
+    color: var(--blanco); /* Usamos la variable de blanco de tu CSS */
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 5px 10px;
+    transition: transform 0.3s;
+    z-index: 1001; 
+}
+
+/* Estilo de la lista de navegación */
+.nav-links ul {
+    list-style: none;
+    display: flex; /* Muestra los enlaces horizontalmente en escritorio */
+    gap: 25px;
+}
+
+.nav-links a {
+    /* Manteniendo tus estilos de enlace */
+    text-decoration: none;
+    color: var(--blanco);
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 8px 14px;
+    border-radius: 6px;
+    transition: background 0.25s, transform 0.25s;
+}
+
+.nav-links a:hover {
+    background: rgba(255,255,255,0.25);
+    transform: translateY(-2px);
+}
+
+
+/* === MEDIA QUERY PARA MÓVILES === */
+/* Aplicar a anchos menores o iguales a 700px (usando tu punto de quiebre) */
+@media (max-width: 700px) {
+
+    /* 1. MOSTRAR EL BOTÓN DE HAMBURGUESA */
+    .menu-toggle {
+        display: block; /* Muestra el botón en móvil */
+    }
+
+    /* Ajuste al header para alinear correctamente */
+    .main-header {
+        flex-wrap: wrap; /* Permite que los elementos se apilen si es necesario */
+        padding: 15px 20px;
+    }
+    
+    /* 2. OCULTAR Y ESTILIZAR EL MENÚ DESPLEGABLE */
+    .nav-links {
+        /* Posiciona el menú debajo del header, ocupando todo el ancho */
+        position: absolute;
+        top: 80px; /* Ajustar a la altura de tu header */
+        left: 0;
+        width: 100%;
+        background-color: var(--verde); /* Tu color de fondo */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        
+        /* Controlado por JavaScript para la animación de despliegue */
+        height: 0; 
+        overflow: hidden; 
+        transition: height 0.3s ease-out; 
+        z-index: 999;
+    }
+    
+    /* Clase que agrega JavaScript cuando el menú está abierto */
+    /* **Ajusta este valor según la cantidad de enlaces que tengas (por ej. 5 enlaces * 50px de altura)** */
+    .nav-links.active {
+        height: 250px; 
+    }
+
+    /* 3. ESTILIZAR LOS ENLACES EN MODO DESPLEGABLE */
+    .nav-links ul {
+        flex-direction: column; /* Apila los enlaces verticalmente */
+        align-items: center; /* Centra los enlaces */
+        padding: 10px 0;
+        gap: 0;
+    }
+
+    .nav-links ul li {
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-links a {
+        display: block; 
+        padding: 15px; /* Más padding para facilitar el clic */
+        border-radius: 0;
+    }
+
+    .nav-links a:hover {
+        background-color: rgba(0, 0, 0, 0.2); /* Un hover oscuro sobre el verde */
+        transform: none;
+    }
+}

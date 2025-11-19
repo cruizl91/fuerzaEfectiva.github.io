@@ -80,18 +80,18 @@ main {
 
 /* Paso 2: Estilo e inicialización del submenú */
 .nav-links ul li .submenu {
-    display: none; /* Oculto por defecto */
+    display: none; /* OCULTAR POR DEFECTO */
     position: absolute;
-    top: 100%; /* Posicionar justo debajo del enlace principal */
+    top: 100%; 
     left: 0;
-    min-width: 220px;
-    background-color: #06691c; /* Un tono un poco más oscuro que el header */
-    list-style: none; /* Eliminar viñetas */
+    min-width: 200px;
+    background-color: #06691c; /* Color más oscuro para el submenú */
+    list-style: none;
     padding: 0;
     margin: 0;
-    border-radius: 0 0 6px 6px; /* Bordes redondeados sólo en la parte inferior */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    border-radius: 0 0 6px 6px;
     z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 /* Paso 3: Mostrar el submenú al pasar el cursor sobre el ítem principal */
@@ -118,24 +118,73 @@ main {
     transform: none; /* Desactivar el efecto de "subir" del hover principal */
 }
 
-/* Ajuste para el Modo Móvil (Si usas el menú responsive) */
+/* ======================================= */
+/* RESPONSIVE (MÓVIL) */
+/* ======================================= */
 @media (max-width: 700px) {
+    .main-header {
+        padding: 10px 15px;
+    }
+    
+    .menu-toggle {
+        display: block; /* Mostrar el botón hamburguesa en móvil */
+    }
+
+    .nav-links {
+        /* Ocultar el menú de navegación completo por defecto */
+        display: none; 
+        position: absolute;
+        top: 60px; /* Ajustar a la altura de tu header en móvil */
+        left: 0;
+        width: 100%;
+        background-color: var(--verde);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        z-index: 900;
+        /* Estilos de transición para abrir/cerrar (opcional, pero mejora la UX) */
+        transition: all 0.3s ease-in-out; 
+    }
+    
+    /* Clase que JavaScript añade para mostrar el menú */
+    .nav-links.active {
+        display: block;
+    }
+
+    .nav-links ul {
+        flex-direction: column; /* Apilar los ítems verticalmente */
+        padding: 10px 0;
+    }
+
+    .nav-links a {
+        padding: 10px 20px;
+        text-align: left;
+        border-radius: 0;
+    }
+
+    /* ------------------------------------------- */
+    /* SUBMENÚ EN MÓVIL */
+    /* ------------------------------------------- */
     .nav-links ul li .submenu {
-        /* En móvil, se muestra de forma estática, ocupando el ancho completo */
+        /* Revertir estilos de escritorio para que el submenú sea parte del flujo */
         position: static; 
         width: 100%;
         border-radius: 0;
         box-shadow: none;
-        background-color: #1a9033; /* Color de fondo ajustado para el móvil */
+        background-color: #1a9033; /* Tono más claro para el submenú anidado */
+        
+        /* En móvil, el submenú se oculta inicialmente (lógica de CSS/JS para abrir) */
+        display: none; 
     }
     
-    /* Asegura que si se usa el archivo menu-toggle.js, el submenú se muestre */
+    /* Cuando el menú principal está ACTIVO, mostrar el submenú */
     .nav-links.active .submenu {
-        display: block !important;
+        display: block;
     }
-    
+
+    /* Indentar el enlace del submenú para distinguirlo */
     .nav-links ul li .submenu a {
-        padding-left: 30px; /* Indentar los sub-ítems para distinguirlos */
+        padding-left: 40px; 
+        font-size: 0.95rem;
+        background-color: #1a9033;
     }
 }
 
@@ -238,14 +287,12 @@ input[type="number"]:focus {
 
 /* --- SECCIÓN DE HEADER PRINCIPAL (Mantenida) --- */
 .main-header {
-    width: 100%;
-    background: var(--verde);
-    color: var(--blanco);
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 15px 30px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    background: var(--verde);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 /* CONTENEDOR DEL LOGO + TEXTO */
@@ -358,32 +405,35 @@ footer p {
 
 /* Ocultar el botón por defecto en escritorio */
 .menu-toggle {
-    display: none; 
+    display: none; /* Ocultar el botón hamburguesa en escritorio */
     background: none;
     border: none;
-    color: var(--blanco); /* Usamos la variable de blanco de tu CSS */
-    font-size: 1.5rem;
+    color: var(--blanco);
+    font-size: 1.8rem;
     cursor: pointer;
-    padding: 5px 10px;
-    transition: transform 0.3s;
-    z-index: 1001; 
 }
 
 /* Estilo de la lista de navegación */
 .nav-links ul {
     list-style: none;
-    display: flex; /* Muestra los enlaces horizontalmente en escritorio */
-    gap: 25px;
+    display: flex; /* Horizontal en escritorio */
+    gap: 15px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links ul li {
+    position: relative; /* Para el dropdown de escritorio */
 }
 
 .nav-links a {
-    /* Manteniendo tus estilos de enlace */
     text-decoration: none;
     color: var(--blanco);
     font-size: 1rem;
     font-weight: bold;
     padding: 8px 14px;
     border-radius: 6px;
+    display: block;
     transition: background 0.25s, transform 0.25s;
 }
 

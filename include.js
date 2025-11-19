@@ -6,24 +6,18 @@
 function loadHTML(url, targetId) {
     fetch(url)
         .then(response => {
-            // Verifica que la solicitud fue exitosa
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
             return response.text();
         })
         .then(data => {
-            // Inserta el contenido HTML en el placeholder
+            // 1. Inserta el contenido HTML en el placeholder
             document.getElementById(targetId).innerHTML = data;
             
-            // **CRÍTICO: Inicializar el menú SÓLO después de cargar el header**
-            if (targetId === 'header-placeholder') {
-                // Asegúrate de que la función initializeMenuToggle exista antes de llamarla
-                if (typeof initializeMenuToggle === 'function') {
-                    initializeMenuToggle();
-                } else {
-                    console.error("Error: initializeMenuToggle no está definida. Asegúrate de cargar menu-toggle.js");
-                }
+            // 2. Ejecuta la función de inicialización del menú SÓLO después de insertar el header
+            if (targetId === 'header-placeholder' && typeof initializeMenuToggle === 'function') {
+                initializeMenuToggle();
             }
         })
         .catch(error => {
